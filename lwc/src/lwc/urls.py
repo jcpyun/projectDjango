@@ -13,14 +13,19 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from django.conf import settings
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'doge.views.home', name='home'),
     url(r'^contact/$', 'doge.views.contact', name='contact'),
-  #  url(r'^home2/$', 'lwc.views.home2', name='home2'),
-    
+  #  url(r'^home2/$', 'lwc.views.home2', name='home2'),   
 
-]
+] 
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
+    urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
