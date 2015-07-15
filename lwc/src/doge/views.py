@@ -32,7 +32,7 @@ def home(request):
 		context = {
 			"title": "Thank You, Your input has been submitted",
 		}
-	return render(request, "home.html", context) 
+	return render(request, "base.html", context) 
 	## MAKE SURE TO GO TO URLS.PY AT LWC AND CHANGE TO 
 	## DOGE INSTEAD OF LWC.VIEWS.HOME
 
