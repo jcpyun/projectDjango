@@ -3,17 +3,29 @@
 {% load crispy_forms_tags %}
 
 {% block head_title %} Welcome | {{ block.super }} {% endblock %}
+
+<style>
+{% block style %}
+
+{% endblock %}
+</style>
   
 <html>
 {% block jumbotron_content %}
-<div class="jumbotron">
-        <h1>facebook </h1>
-        <p>Powered by Django 1.8.2</p>
-        <p>John Pyun is Awesome.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">wau &raquo;</a>
-        </p>
-        </div>
+<div class= "row">
+	<div class= "col-sm-6">
+		<!-- <div class="jumbotron"> -->
+        	<h1>facebook </h1>
+	        <p>Powered by Django 1.8.2</p>
+	        <p>This is designed by John Pyun. This is an example of how Django framework reacts with html,css, and javascript.</p>
+	        <p>
+	        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Find out More! &raquo;</a>
+	        </p>
+	   <!--  </div> -->
+	</div>
+    <div class= 'col-sm-6' style= "background-color: black; height:300px; "></div>
+</div>
+
 {% endblock %}
 
 {% block jumbotron %}
@@ -23,25 +35,35 @@
 
 {% block content %}
   
-	<body>
-		<h1> {{ title }}</h1>
-		<div class="row">
-		  <div class="col-sm-6 col-md-3">
+<body>
+	
+	<div class="row">
+		<!-- <div class="col-sm-6 col-md-3"> -->
+		<div class = "col-sm-3">
+			<p class = 'lead text-align-center'>  Built with Django &amp; Bootstrap </p>
+		</div>
+		<div class= "col-sm-3 pull-right">
 	<!-- 
 	{{ user }}
 	{{ request.user }} -->
-
-		<form method='POST' action=''>{% csrf_token %} <!-- mine was in botom -->
-	<!-- {{ form.as_p }}-->
-		{{ form|crispy }}
-		<input class = 'btn btn-primary' type='submit' value= 'Sign Up' /> <!-- mine was here -->
-	<!-- 	<input type = 'text'>
-		</input> -->
-		</form>
-
-	</body>
-  </div>
-</div>
+		<!-- 	<h1> {{ title }}</h1> -->
+			<p class = 'lead'> {{ title }} </p>
+			<form method='POST' action=''>{% csrf_token %} <!-- mine was in botom -->
+		<!-- {{ form.as_p }}-->
+			{{ form|crispy }}
+				<input class = 'btn btn-primary' type='submit' value= 'Sign Up' /> <!-- mine was here -->
+		<!-- 	<input type = 'text'>
+			</input> -->
+			</form>
+		</div>
+		<div class = "col-sm-3">
+			<p class = 'lead'> This is a test </p>
+		</div>
+		<div class = "col-sm-3">
+			<p class = 'lead'>First Attempt</p>
+		</div>
+	</div>
+</body>
 
 {% endblock %}
 </html>
