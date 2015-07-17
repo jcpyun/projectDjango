@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block head_title %} Welcome | {{ block.super }} {% endblock %}
   
 <html>
 {% block jumbotron_content %}
 <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <h1>facebook </h1>
+        <p>Powered by Django 1.8.2</p>
+        <p>John Pyun is Awesome.</p>
         <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">wau &raquo;</a>
         </p>
         </div>
 {% endblock %}
@@ -21,23 +22,26 @@
 {% endblock %}
 
 {% block content %}
-<body>
-<h1> {{ title }}</h1>
-<!-- 
-{{ user }}
-{{ request.user }} -->
+  
+	<body>
+		<h1> {{ title }}</h1>
+		<div class="row">
+		  <div class="col-sm-6 col-md-3">
+	<!-- 
+	{{ user }}
+	{{ request.user }} -->
 
+		<form method='POST' action=''>{% csrf_token %} <!-- mine was in botom -->
+	<!-- {{ form.as_p }}-->
+		{{ form|crispy }}
+		<input class = 'btn btn-primary' type='submit' value= 'Sign Up' /> <!-- mine was here -->
+	<!-- 	<input type = 'text'>
+		</input> -->
+		</form>
 
-<form method='POST' action=''>{% csrf_token %} <!-- mine was in botom -->
-{{ form.as_p }}
+	</body>
+  </div>
+</div>
 
-<input type='submit' value= 'Sign Up' /> <!-- mine was here -->
-<!-- 	<input type = 'text'>
-	</input> -->
-
-
-</form>
-
-</body>
 {% endblock %}
 </html>

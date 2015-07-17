@@ -22,5 +22,5 @@ class SignUpForm(forms.ModelForm):
 		else:
 			domain,extension = provider.split('.')
 			if not extension=="edu":
-				raise forms.ValidationError("FUCK YOU USE EDU")
+				raise forms.ValidationError("FUCK YOU USE EDU. BITCH")
 		return email
