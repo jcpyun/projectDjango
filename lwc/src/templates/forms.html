@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
 <html>
-
 <body>
-<h1> {{ title }}</h1>
-<!-- {{ user }}
-{{ request.user }} -->
 
 
-<form method='POST' action=''> {% csrf_token %}
-{{ form.as_p }}
 
-<input type='submit' value= 'Sign Up' />
+<div class= 'row'>
+	<div class = 'col-sm-6 col-sm-offset-3'>
+		{% if title %}
+
+		<h1> {{ title }}</h1>
+		{{ user }}
+		{{ request.user }}
+		{% endif %}
+		<form method='POST' action=''> {% csrf_token %}
+		{{ form|crispy }}
+
+		<input class='btn btn-default' type='submit' value= 'Sign Up' />
 <!-- 	<input type = 'text'>
 	</input> -->
 
 
-</form>
+		</form>
 
-
-
-
-
+	</div>
+</div>
 </body>
 </html>
+{% endblock %}

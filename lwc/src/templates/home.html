@@ -11,26 +11,23 @@
 </style>
   
 <html>
-{% block jumbotron_content %}
-<div class= "row">
-	<div class= "col-sm-6">
-		<!-- <div class="jumbotron"> -->
-        	<h1>facebook </h1>
-	        <p>Powered by Django 1.8.2</p>
-	        <p>This is designed by John Pyun. This is an example of how Django framework reacts with html,css, and javascript.</p>
-	        <p>
-	        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Find out More! &raquo;</a>
-	        </p>
-	   <!--  </div> -->
+{% block jumbotron %}
+<div class= "jumbotron" >
+	<div class= "row">
+		<div class= "col-sm-6">
+			<!-- <div class="jumbotron"> -->
+	        	<h1>facebook </h1>
+		        <p>Powered by Django 1.8.2</p>
+		        <p>This is designed by John Pyun. This is an example of how Django framework reacts with html,css, and javascript.</p>
+		        <p>
+		        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Find out More! &raquo;</a>
+		        </p>
+		   <!--  </div> -->
+		</div>
+	    <div class= 'col-sm-6' style= "background-color: black; height:300px; "></div>
 	</div>
-    <div class= 'col-sm-6' style= "background-color: black; height:300px; "></div>
 </div>
 
-{% endblock %}
-
-{% block jumbotron %}
-	{{ block.super }}
-	Hello 
 {% endblock %}
 
 {% block content %}
