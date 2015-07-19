@@ -23,4 +23,16 @@ body {
 	color:#222;
 }
 
+.navbar-default .navbar-toggle{
+	border-color: transparent !important;
+}
+
+.navbar-toggle{
+	background-color: #3b5998 !important;
+	color:white;
+}
+
+.navbar-toggle:hover{
+	background-color: white !important;
+}
 
