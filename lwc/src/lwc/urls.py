@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^contact/$', 'doge.views.contact', name='contact'),
     url(r'^about/$', 'lwc.views.about', name='about'),
   #  url(r'^home2/$', 'lwc.views.home2', name='home2'),   
+    #from django redux right below this line
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 ] 
 
