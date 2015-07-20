@@ -20,6 +20,7 @@
   
 <html>
 {% block jumbotron %}
+{% if not request.user.is_authenticated %}
 <div class= "jumbotron" >
 	<div class= "container" >
 		<div class= "row">
@@ -27,7 +28,7 @@
 				<!-- <div class="jumbotron"> -->
 		        	<h1>facebook </h1>
 			        <p>Powered by Django 1.8.2</p>
-			        <p>This is designed by John Pyun. This is an example of how Django framework reacts with html,css, and javascript.</p>
+			        <p>This is designed by John Pyun. This is an example of how Django framework reacts with html, css, and javascript. Suck My Dick.</p>
 			        <p>
 			        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Find out More! &raquo;</a>
 			        </p>
@@ -35,14 +36,37 @@
 			</div>
 			<!-- <div class= 'col-sm-6' style= "background-color: black; height:315px; "> -->
 		    <div class= 'col-sm-6'>
-		    <iframe width="560" height="315" src="https://www.youtube.com/embed/sd4bqmP_460" frameborder="0" allowfullscreen></iframe></div>
+		    <iframe width="560" height="315" src="https://www.youtube.com/embed/MF-kziYWuOM" frameborder="0" allowfullscreen></iframe></div>
 		</div>
 	</div>
 </div>
-
+{% else %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
+
+{% if request.user.is_authenticated %}
+
+<h1> Welcome {{ request.user }}! This is your homescreen </h1>
+
+{% if queryset %}
+<h2> Welcome Staff </h2>
+
+<table class='table'>
+	{% for instance in queryset %}
+	<tr><td>{{ forloop.counter}} </td><td>{{ instance }}</td><td>{{ instance.full_name }}</td><td>{{ instance.timestamp|timesince }} ago<td></tr>
+<!-- {% for instance in queryset %}
+	{{ instance }},{{ instance.full_name }} <br/>
+{% endfor %} -->
+{% endfor %}
+</table>
+
+{{ queryset }}
+
+{% endif %}
+
+{% else %}
   
 <body>
 	
@@ -66,13 +90,17 @@
 			</form>
 		</div>
 		<div class = "col-sm-3">
-			<p class = 'lead'> This is a test </p>
+			<p class = 'lead text-align-center'> This is a test 
+				<br/>
+				<i class="fa fa-coffee fa-5x fa-spin"></i>
+			</p>
+
 		</div>
 		<div class = "col-sm-3">
 			<p class = 'lead'>First Attempt</p>
 		</div>
 	</div>
 </body>
-
+{% endif %}
 {% endblock %}
 </html>

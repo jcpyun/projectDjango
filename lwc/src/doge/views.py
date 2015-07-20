@@ -4,10 +4,11 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 
 from .forms import ContactForm, SignUpForm
+from .models import SignUp
 
 # Create your views here.
 def home(request):
-	title = "Welcome! "
+	title = "Sign Up Now!"
 	form = SignUpForm(request.POST or None)
 	# if request.method=="POST":
 	# 	print request.POST
@@ -31,6 +32,16 @@ def home(request):
 	# 	title= "Hello %s, I've been expecting you" %(request.user)
 		context = {
 			"title": "Thank You, Your input has been submitted",
+		}
+	if request.user.is_authenticated() and request.user.is_staff:
+		# i = 1
+		# for instance in SignUp.objects.all():
+		# 	print i, instance
+		# 	i +=1
+		# print (SignUp.objects.all())
+		queryset = SignUp.objects.all().order_by('-timestamp')
+		context = {
+			"queryset":queryset,
 		}
 	return render(request, "home.html", context) 
 	## MAKE SURE TO GO TO URLS.PY AT LWC AND CHANGE TO 
