@@ -1,4 +1,6 @@
 from django.conf import settings
+
+from django.contrib import messages    #JUST implemented this myself
 from django.core.mail import send_mail
 
 from django.shortcuts import render
@@ -8,7 +10,7 @@ from .models import SignUp
 
 # Create your views here.
 def home(request):
-	title = "Sign Up Now!"
+	title = "Early Access:"
 	form = SignUpForm(request.POST or None)
 	# if request.method=="POST":
 	# 	print request.POST
@@ -58,7 +60,7 @@ def contact (request):
 
 		subject = 'Site contact form'
 		from_email = settings.EMAIL_HOST_USER
-		to_email = [from_email,"johnfunky@gmail.com"]
+		to_email = [from_email,"cmujcp@gmail.com"]
 		contact_message = "%s: %s via %s"%(
 			form_full_name,
 			form_message,
@@ -71,7 +73,7 @@ def contact (request):
 			from_email,
 			to_email,
 			#html_message=some_html_message,
-			fail_silently=True)
+			fail_silently=False)
 		# for key ,value in form.cleaned_data.iteritems():
 		# 	print key,value
 		# email = form.cleaned_data.get("email")

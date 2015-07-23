@@ -26,11 +26,11 @@ if not settings.DEBUG:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
 
-    ALLOWED_HOSTS = ['jcpyun.webfactional.com']
+    ALLOWED_HOSTS = ['jcpyun.webfactional.com',]
 
-    EMAIL_HOST = "smtp.gmail.com"
-    EMAIL_HOST_USER = "cmujcp@gmail.com"
-    EMAIL_HOST_PASSWORD = "canucks1234"
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'cmujcp@gmail.com'
+    EMAIL_HOST_PASSWORD = 'canucks1234'
     EMAIL_PORT = 587
     EMAIL_USE_TLS= True
 
@@ -168,7 +168,8 @@ if not settings.DEBUG:
     CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
     #django redux settings
-    ACCOUNT_ACTIVATION_DAYS=7
+    ACCOUNT_ACTIVATION_DAYS=8
     REGISTRATION_AUTO_LOGIN=True
+    REGISTRATION_EMAIL_HTML=False
     SITE_ID=1
     LOGIN_REDIRECT_URL= '/'
