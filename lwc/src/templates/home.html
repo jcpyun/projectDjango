@@ -51,6 +51,9 @@
 
 <h1> Welcome {{ request.user }}! This is your homescreen </h1>
 
+{% block cat %}
+{% endblock %}
+
 {% if queryset %}
 <h2> Welcome Staff </h2>
 

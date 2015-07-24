@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<html>
+<head>
+	<title> Test </title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#image {
+		position: relative;
+		z-index: -1;
+	}
+	#content{
+		height: 750px;
+		width: 100%;
+		margin-top:-10px;
+		background-color: #4dbbac;
+		position: relative;
+		z-index:1;
+	}
+	</style>
+	<script type="text/javascript">
+		var ypos,image;
+		function parallex(){
+			ypos= window.pageYOffset;
+			image= document.getElementById('image');
+			image.style.top = ypos *.4+'px';
+		}
+		window.addEventListener('scroll',parallex);
+	</script>
+
+</head>
+<body>
+<img id="image" src="http://andrevv.com/img/catz/catz01.gif" height="710px" width="100%"/>
+
+<div id="content"></div>
+</body>
+</html>
+
+{% endblock %}

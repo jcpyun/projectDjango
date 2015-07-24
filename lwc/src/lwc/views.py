@@ -5,6 +5,10 @@ from django.shortcuts import render
 def about(request):
 	
 	return render(request, "about.html", {}) 
+def cat(request):
+	return render(request, "cat.html",{})
+def parallax(request):
+	return render(request, "parallax.html",{})
 
 
 # from django.shortcuts import render
